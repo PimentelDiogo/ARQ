@@ -129,6 +129,9 @@ body, h1, h2, ul, li, p, dd, dt, dl {
     margin-top: 10px;
     background-color: #fb5;
 }
+.saq-list dt{
+  cursor: pointer;
+}
 .saq-list dd{
     margin-bottom: 5rem;
     margin-left: 30px;
@@ -204,36 +207,44 @@ body, h1, h2, ul, li, p, dd, dt, dl {
       }
   }
   /* Daqui pra baixo não consegui fazer a animação! */
-  .js .js-tabcontent section{
+  .js .js-tabcontent section {
     display: none;
   }
-  .js-tabcontent section.ativo{
-      display: block !important;
-      animation: .4s forwards;
+  
+  .js-tabcontent section.ativo {
+    display: block !important;
+    animation: show .5s forwards;
   }
-  @keyframes show{
-    from{
+  
+  @keyframes show {
+    from {
       opacity: 0;
       transform: translate3d(-30px, 0, 0);
     }
-    to{
+    to {
       opacity: 1;
-      transform: translate3d(0 , 0, 0)
+      transform: translate3d(0, 0, 0);
     }
   }
-  .js .js-accordion dd{
+  
+  .js .js-accordion dd {
     display: none;
   }
-  .js-accordion dt::after{
-    content: '⇣';
+  
+  .js-accordion dt::after {
+    content: '⬎';
+    margin-left: 10px;
   }
-  .js-accordion dt .ativo::after{
-    content: '⇡';
+  
+  .js-accordion dt.ativo::after {
+    content: '⬏';
   }
-  .js-accordion dd .ativo{
+  
+  .js-accordion dd.ativo {
     display: block;
     animation: slideDown .5s forwards;
   }
+  
   @keyframes slideDown {
     from {
       opacity: 0;
@@ -243,4 +254,15 @@ body, h1, h2, ul, li, p, dd, dt, dl {
       max-height: 200px;
       opacity: 1;
     }
+  }
+  
+  .js .js-scroll {
+    opacity: 0;
+    transform: translate3d(-30px, 0, 0);
+    transition: .3s;
+  }
+  
+  .js .js-scroll.ativo {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
